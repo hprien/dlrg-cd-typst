@@ -1,7 +1,7 @@
-#import "templates/dlrg-cd-a4-quer-titlepage.typ": dlrg-cd
+#import "templates/dlrg-cd-a4-quer-titlepage.typ": dlrg-cd-a4-quer-titlepage
 
-#show: dlrg-cd.with(
-  title: "Mustertext Mustertext Mustertext",
+#show: dlrg-cd-a4-quer-titlepage.with(
+  title: "Mustertext Mustertext dies dies ds ss w w s r  a a",
   url: "ubstadt-weiher.dlrg.de",
   gliederung: "Ubstadt-Weiher e.V.",
   ressort: "Musterressort",

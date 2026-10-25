@@ -21,8 +21,8 @@
 #let top-margin = 2.5cm
 #let bottom-margin = 2.5cm
 
-#let dlrg-footer(url, gliederung, ressort, stand-text, bar-left-offset) = {
-  place(bottom + left, dx: -bar-left-offset, dy: -10mm,
+#let dlrg-footer(url, gliederung, ressort, stand-text) = {
+  place(bottom + left, dx: -left-margin, dy: -10mm,
     // roter balken
     box(width: bar-width, height: bar-height, fill: cd-red, {
       // url
@@ -61,7 +61,7 @@
   set text(font: cd-font, size: 11pt, lang: "de")
   set page(paper: "a4", flipped: true,
     margin: (top: top-margin, bottom: bottom-margin, left: left-margin, right: right-margin),
-    footer: dlrg-footer(url, gliederung, ressort, stand-text, 20mm))
+    footer: dlrg-footer(url, gliederung, ressort, stand-text))
 
   // ---- Erste Seite ----
   place(bottom + right, dx: right-margin, dy: bottom-margin,
@@ -70,9 +70,9 @@
 
   place(top + left, dx: -left-margin, dy: -top-margin+15mm,
     // Titel
-    box(width: 140.3mm, fill: cd-red, radius: (right: 3mm),
+    box(width: 150mm, fill: cd-red, radius: (right: 3mm),
       inset: (top: 7.5mm, left: 7.5mm, right: 7.5mm, bottom: 7.5mm),
-      { set par(leading: 9.38mm); text(fill: cd-yellow, size: 28pt, weight: "bold", title) }))
+      text(fill: cd-yellow, size: 28pt, weight: "bold", title) ))
 
   // ---- Folgende Seite ----
   pagebreak()

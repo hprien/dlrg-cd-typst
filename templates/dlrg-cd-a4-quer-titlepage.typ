@@ -2,7 +2,8 @@
 // DLRG Corporate Design – Vorlage (DIN A4 quer)
 // Erste Seite: grauer Adler-Hintergrund + roter Mustertext-Kasten
 // Alle Seiten: roter Balken unten mit Webseite, Logo und Gliederung,
-//              darunter die zentrierte Zeile "Stand: TT.MM.JJJJ" (Kompilierdatum)
+//              darunter die zentrierte Zeile "Stand: TT.MM.JJJJ" (Kompilierdatum),
+//              rechts daneben die Seitenzahl (erste Seite ohne Nummer)
 // ============================================================
 
 // Corporate-Design-Farben
@@ -40,8 +41,16 @@
     }))
 
   // Datum
-  place(bottom + center, dy: -0.55mm,
+  place(bottom + center, dy: -1mm,
     text(fill: black, size: 11pt, "Stand: " + stand-text))
+
+  // Seitenzahl – erst ab der zweiten Seite, rechts neben der Stand-Zeile
+  context {
+    if counter(page).get().first() > 1 {
+      place(bottom + right, dx: right-margin - 10mm, dy: -1mm,
+        text(fill: black, size: 11pt, counter(page).display()))
+    }
+  }
 }
 
 #let dlrg-cd-a4-quer-titlepage(
